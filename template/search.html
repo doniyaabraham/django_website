@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     {% load static %}
+    <link href="{% static 'https://fonts.googleapis.com/css2?family=Cookie&display=swap' %}" rel="stylesheet">
+    <link href="{% static 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap' %}"
+    rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/elegant-icons.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+</head>
+<body>
+<div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Offcanvas Menu Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="offcanvas__close">+</div>
+        <ul class="offcanvas__widget">
+            <li><span class="icon_search search-switch"></span></li>
+            <li><a href="#"><span class="icon_heart_alt"></span>
+                <div class="tip">{{wish_items}}</div>
+            </a></li>
+            <li><a href="#"><span class="icon_bag_alt"></span>
+                <div class="tip">{{count_items}}</div>
+            </a></li>
+        </ul>
+        <div class="offcanvas__logo">
+            <a href="./index.html"><img src="{% static 'img/logo.png' %}" alt=""></a>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+        <div class="header-btn">
+            <a class="login" href="logout">Logout</a>
+            <a class="login" href="edit">Edit your profile </a>
+        </div>
+    </div>
+    <!-- Offcanvas Menu End -->
+
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-2 col-lg-2">
+                    <div class="header__logo">
+                        <a href="index"><img src="{% static 'img/logo.png' %}" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-xl-7 col-lg-8">
+                    <nav class="header__menu">
+                        <ul>
+                            <li> <a href="../index">Home</a></li>
+                            <li class="active"><a href="cart_details">Search</a></li>
+                          <li> <a  href="logout">Logout</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+
+
+
+            <div class="canvas__open">
+                <i class="fa fa-bars"></i>
+            </div>
+        </div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+<br>
+<br>
+<div class="breadcrumb-option">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb__links">
+                        <a href="../index"><i class="fa fa-home"></i> Home</a>
+                        <span>Find me</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<br>
+<br>
+{% if messages %}
+
+<div class="container" >
+
+<div class="alert alert-success alert-dismissible messages">
+
+  {% for message in messages %}
+
+   <button type="button" class="close" data-dismiss="alert">&times;</button>
+
+   {{message}}
+
+  </div>
+
+  {% endfor %}
+</div>
+
+{% endif %}
+
+<div class="search-model" style="display:block;">
+    <div class="h-100 d-flex align-items-center justify-content-center">
+<!--        <div class="search-close-switch">+</div>-->
+        <form action="" class="search-model-form"  method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="text"  placeholder="Search here....." name="product_name">
+            <button type="submit" class="site-btn">Search</button>
+        </form>
+    </div>
+</div>
+
+
+ <section id="Lehenga and Gowns">
+    <div class="container">
+          <div class="row">
+        <!-- Start of products loop -->
+        {% for i in data %}
+                <div class="row property__gallery">
+
+
+                          <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="product__item">
+                        <div class="product__item__pic set-bg" data-setbg="{{ i.image.url }}" style="max-width: 210px;">
+                            <ul class="product__hover">
+                                <li><a href="{{ i.image.url }}" class="image-popup"><span class="arrow_expand"></span></a></li>
+                                {% if i.pk in wish_item %}
+                            <!-- Style the heart icon if the product is in the wishlist -->
+                            <span class="custom-tooltip">
+    <i class="fa fa-heart fa-2x " style="color: orange; "></i>
+                                <span class="tooltip-text">Wishlisted</span>
+                            </span>
+                        {% else %}
+                            <!-- Display the regular wishlist icon if the product is not in the wishlist -->
+                            <li><a href="wishcart/{{ i.pk }}"><span class="icon_heart_alt"></span></a></li>
+                        {% endif %}
+
+                                <li><a href="cart_details"><span class="icon_bag_alt"></span></a></li>
+                            </ul>
+                        </div>
+                        <div class="product__item__text">
+                            <h6><a href="#">{{ i.product_name }}</a></h6>
+                              <span>Available size:{{ i.size}}</span>
+
+<!--                            <div class="product__price">${{ i.price }}</div>-->
+<!--                            {% if i.pk in count_item %}-->
+<!--                <div class="fix">-->
+
+<!--                            <div class="btn"><a href="cart_details" class="btn">GOTO CART</a></div>-->
+
+<!--                            {% else %}-->
+<!--                             <div class="fix">-->
+
+<!--                            <div class="btn"><a href="addcart/{{ i.pk }}" class="btn">ADDTO CART</a></div>-->
+
+<!--                        {% endif %}-->
+                            <br>
+                            <div class="product__price"><i class="fa fa-rupee" style="color:black; font-size:15px "></i> </span>{{ i.price }}</div>
+<!--                <div class="fix">-->
+<!--&lt;!&ndash;                            <div class="btn"><a href="addcart/{{ i.pk }}" class="btn">ADDTO CART</a></div>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div class="btn"><a href="singlecart/{{ i.pk }}" class="btn">Buy</a></div>&ndash;&gt;-->
+<!--                    -->{% if i.pk in count_item %}
+<!--                        </div>--><div class="product__details__button"><a href="cart_details" class="cart-btn"><i class="fa fa-shopping-cart" style="color: white; font-size:19px "></i> Go to cart</a>
+                            </div>
+                            {% else %}
+                            <div class="product__details__button"><a href="addcart/{{ i.pk }}" class="cart-btn"><span class="icon_bag_alt"></span> Add to cart</a>
+                            </div>
+                            {% endif %}
+
+
+                            </div>
+                         </div>
+                    </div>
+                </div>
+
+
+        {% endfor %}
+        </div>
+            </div>
+    </div>
+</section>
+
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'js/jquery-ui.min.js' %}"></script>
+<script src="{% static 'js/mixitup.min.js' %}"></script>
+<script src="{% static 'js/jquery.countdown.min.js' %}"></script>
+<script src="{% static 'js/jquery.slicknav.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/jquery.nicescroll.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

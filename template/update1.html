@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  {% load static %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/elegant-icons.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+</head>
+<body>
+<header class="header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-3 col-lg-2">
+                    <div class="header__logo">
+                        <a href="#">Admin</a>
+                    </div>
+                </div>
+
+                <div class="col-xl-6 col-lg-7">
+                    <nav class="header__menu">
+                        <ul>
+                            <li class="active"><a href="update">update order status</a></li>
+                            <li><a href="../adminside">Admin</a></li>
+
+                            <li><a href="../logout">Logout</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+            </div>
+            <div class="canvas__open">
+                <i class="fa fa-bars"></i>
+            </div>
+        </div>
+    </header>
+{% if messages %}
+
+<div class="container" >
+
+<div class="alert alert-success alert-dismissible messages">
+
+  {% for message in messages %}
+
+   <button type="button" class="close" data-dismiss="alert">&times;</button>
+
+   {{message}}
+
+  </div>
+
+  {% endfor %}
+</div>
+
+{% endif %}
+<body>
+<div class="form_containers" style="background-color:#17a2b8 !important;">
+    <div class="row">
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-box">
+            <select name="category" required value="{{data.statuss}}">
+<!--{{order_item.orderdet.status }}-->
+                <option value="1">Pending</option>
+                <option value="2">Dispatch</option>
+                <option value="3">On the way</option>
+                <option value="4">Delivered</option>
+
+            </select>
+        </div>
+        <button type="submit" class="btn">update the status</button>
+         </form>
+   </div>
+</div>
+</body>
+</html>

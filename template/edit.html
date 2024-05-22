@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>edit</title>
+    {% load static %}
+ <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/elegant-icons.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/slicknav.min.css' %}" type="text/css">
+
+<style>
+.form_container{
+        display:flex;
+        justify-content:center;
+        color:#fff;
+        align-items:center;
+        min-height:100vh;
+background-image:url("{% static 'img/categories/new.jpg' %}");
+
+        background-size:cover;}
+    .login-form{
+        width:750px;
+        background:rgba(255,255,255,.1);
+        border:2px solid rgba(255,255,255,.2);
+        backdrop-filter:blur(20px);
+        box-shadow:0 0 10px rgba(0,0,0,.2);
+
+        color:#fff;
+        padding:40px 35px 55px;
+        border-radius:10px;
+        }
+    .login-form h1{
+        font-size:36px;
+        text-align:center;
+        margin-bottom:20px;
+          color:#fff;
+        }
+    .login-form .input-box {
+         display:flex;
+         justify-content:space-between;
+         flex-wrap:wrap;
+
+         }
+    .input-box .input-field{
+    position:relative;
+    width:50%;
+    height:50px;
+    margin:13px 0;
+    }
+    .input-box .input-field input{
+    width:100%;
+    height:100%;
+    background:transparent;
+    border;2px solid rgba(255,255,255,.2);
+    outline:none;
+    font-size:16px;
+    color:#fff;
+    border-radius:6px;
+    padding:15px 15px 15px 40px;}
+   .input-box .input-field input::placeholder {
+    color:#fff;}
+  .input-box .input-field i{
+    position:absolute;
+    left:15px;
+    top:50%;
+    transform:translate(-50%);
+    font-size:20px;}
+
+    .login-form label{
+    display:inline-block;
+    font-size:14.5px;
+    margin:10x 0 23px;}
+    .login form input {
+    accent-color:#fff;
+    margin-right:5px;}
+
+    .login-form .btn{
+         width:100%;
+         height:45px;
+         background:#fff;
+         border:none;
+         outline:none;
+         border-radius:6px;
+         box-shadow:0 0 10px rgba(0,0,0,.1);
+         cursor:pointer;
+         font-size:16px;
+         color:#333;
+         font-weight:600;
+         }
+
+
+
+</style>
+</head>
+<body>
+<div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Offcanvas Menu Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="offcanvas__close">+</div>
+        <ul class="offcanvas__widget">
+            <li><span class="icon_search search-switch"></span></li>
+            <li><a href="#"><span class="icon_heart_alt"></span>
+                <div class="tip">2</div>
+            </a></li>
+            <li><a href="#"><span class="icon_bag_alt"></span>
+                <div class="tip">2</div>
+            </a></li>
+        </ul>
+        <div class="offcanvas__logo">
+            <a href="./index.html"><img src="{% static 'img/logo.png' %}" alt=""></a>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+        <div class="offcanvas__auth">
+            <a href="index">Login</a>
+            <a href="register">Register</a>
+        </div>
+    </div>
+    <!-- Offcanvas Menu End -->
+
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-3 col-lg-2">
+                    <div class="header__logo">
+                        <a href="./index.html"><img src="{% static 'img/logo.png' %}" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-7">
+                    <nav class="header__menu">
+                        <ul>
+                            <li ><a href="../index">Home</a></li>
+                            <li><a href="#About us">About us</a></li>
+                            <li><a href="#services spad">services</a></li>
+                             <li><a href="#contact spad">Contact Us</a></li>
+                            <li class="active"><a href="edit">My Account</a></li>
+                            <li><a href="../Logout">Logout</a></li>
+
+
+                        </ul>
+                    </nav>
+                </div>
+
+            </div>
+            <div class="canvas__open">
+                <i class="fa fa-bars"></i>
+            </div>
+        </div>
+    </header>
+{% if messages %}
+
+<div class="container" >
+
+<div class="alert alert-success alert-dismissible messages">
+
+  {% for message in messages %}
+
+   <button type="button" class="close" data-dismiss="alert">&times;</button>
+
+   {{message}}
+
+  </div>
+
+  {% endfor %}
+</div>
+
+{% endif %}
+
+
+
+<div class="form_container">
+  <div class="login-form">
+
+      <form action="" method="post">
+        {% csrf_token %}
+           <h1>My Account</h1>
+    <div class="input-box">
+        <div class="input-field">
+          <input type="text"  placeholder="Firstname" name="firstname" required value="{{data.firstname}}">
+          <i class="bx bxs-user"></i>
+        </div>
+        <div class="input-field">
+          <input type="text"  placeholder="Lastname" name="lastname" required value="{{data.lastname}}">
+          <i class="bx bxs-user"></i>
+        </div>
+        <div class="input-field">
+          <input type="text"  placeholder="User name" name="username" required  value="{{data.username}}">
+           <i class="bx bxs-user"></i>
+        </div>
+        <div class="input-field">
+          <input type="text"  placeholder="Address" name="address" required value="{{data.address}}">
+           <i class="bx bxs-user"></i>
+        </div>
+    </div>
+
+        <div class="input-box">
+           <div class="input-field">
+             <input type="email"  placeholder="Email" name="email" required  value="{{data.email}}">
+             <i class="bx bxs-envelope "></i>
+           </div>
+           <div class="input-field">
+             <input type="number" placeholder="phone number" name="phno" maxlenght="10" required  value="{{data.phno}}">
+             <i class="bx bxs-phone "></i>
+           </div>
+        </div>
+         <div class="input-box">
+           <div class="input-field">
+             <input type="text"  placeholder="password" name="password" required  value="{{data.password}}">
+             <i class="bx bxs-lock-alt "></i>
+
+           </div>
+          <div class="input-field">
+           <input type="text"  placeholder=" Confirm password" name="conpassword" required  value="{{data.password}}">
+           <i class="bx bxs-lock-alt "></i>
+          </div>
+        </div>
+<!--        <label><input type="checkbox"  required>I hereby declare that the above information provided is true and correct </label>-->
+         <button type="submit" class="btn">Update</button>
+       </form>
+   </div>
+</div>
+<section id="About us">
+<section class="about">
+         <div class="main">
+
+
+                   <img src="{% static 'img/categories/about.jpg' %}">
+                  <div class="about-text">
+                     <h1>About Us</h1>
+
+                     <p >Our journey began with a simple yet profound vision: to be a trusted companion in your wedding planning journey. As you navigate the myriad of choices available, our dedicated team is here to assist, guide, and inspire you every step of the way.Whether you're seeking timeless classics or modern innovations, [Your Website Name] is your one-stop destination for all things wedding. Join us as we embark on this beautiful journey together, celebrating love, commitment, and the magical moments that define the beginning of forever.</p>
+
+                     <a href="#contact spad" class="readmore" >let's Talk</a>
+
+            </div>
+         </div>
+    </section>
+    </section>
+      <!-- about section end -->
+<!-- Services Section Begin -->
+<section id="services spad">
+<section class="services spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="services__item">
+                    <i class="fa fa-car"></i>
+                    <h6>Free Shipping</h6>
+                    <p>For all oder over $99</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="services__item">
+                    <i class="fa fa-money"></i>
+                    <h6>Money Back Guarantee</h6>
+                    <p>If good have Problems</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="services__item">
+                    <i class="fa fa-support"></i>
+                    <h6>Online Support 24/7</h6>
+                    <p>Dedicated support</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="services__item">
+                    <i class="fa fa-headphones"></i>
+                    <h6>Payment Secure</h6>
+                    <p>100% secure payment</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    </section>
+<!-- Services Section End -->
+    <!-- Contact Section Begin -->
+ <section id="contact spad">
+    <section class="contact spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="contact__content">
+                        <div class="contact__address">
+                            <h5>Contact info</h5>
+                            <ul>
+                                <li>
+                                    <h6><i class="fa fa-map-marker"></i> Address</h6>
+                                    <p>160 Pennsylvania Ave NW, Washington, Castle, PA 16101-5161</p>
+                                </li>
+                                <li>
+                                    <h6><i class="fa fa-phone"></i> Phone</h6>
+                                    <p><span>125-711-811</span><span>125-668-886</span></p>
+                                </li>
+                                <li>
+                                    <h6><i class="fa fa-headphones"></i> Support</h6>
+                                    <p>Support.photography@gmail.com</p>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="contact__form">
+                            <h5>SEND MESSAGE</h5>
+                             <form action="" method="post" enctype="multipart/form-data">
+                               {% csrf_token %}
+                                <input type="text" placeholder="Name"   name="name">
+                                <input type="text" placeholder="Email"  name="email">
+                                <textarea placeholder="Message" name="mssg"></textarea>
+                                <button type="submit" class="site-btn">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="contact__map">
+                        <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48158.305462977965!2d-74.13283844036356!3d41.02757295168286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2e440473470d7%3A0xcaf503ca2ee57958!2sSaddle%20River%2C%20NJ%2007458%2C%20USA!5e0!3m2!1sen!2sbd!4v1575917275626!5m2!1sen!2sbd"
+                        height="780" style="border:0" allowfullscreen="">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+     </section>
+<!-- Contact Section End -->
+<!-- Instagram Begin -->
+<div class="instagram">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-2 col-md-4 col-sm-4 p-0">
+                <div class="instagram__item set-bg" data-setbg="img/instagram/insta-1.jpg">
+                    <div class="instagram__text">
+                        <i class="fa fa-instagram"></i>
+                        <a href="#">@ ashion_shop</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-4 p-0">
+                <div class="instagram__item set-bg" data-setbg="img/instagram/insta-2.jpg">
+                    <div class="instagram__text">
+                        <i class="fa fa-instagram"></i>
+                        <a href="#">@ ashion_shop</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-4 p-0"><div class="instagram__item set-bg" data-setbg="img/instagram/insta-3.jpg">
+                    <div class="instagram__text">
+                        <i class="fa fa-instagram"></i>
+                        <a href="#">@ ashion_shop</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-4 p-0">
+                <div class="instagram__item set-bg" data-setbg="img/instagram/insta-4.jpg">
+                    <div class="instagram__text">
+                        <i class="fa fa-instagram"></i>
+                        <a href="#">@ ashion_shop</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-4 p-0">
+                <div class="instagram__item set-bg" data-setbg="img/instagram/insta-5.jpg">
+                    <div class="instagram__text">
+                        <i class="fa fa-instagram"></i>
+                        <a href="#">@ ashion_shop</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-4 p-0">
+                <div class="instagram__item set-bg" data-setbg="img/instagram/insta-6.jpg">
+                    <div class="instagram__text">
+                        <i class="fa fa-instagram"></i>
+                        <a href="#">@ ashion_shop</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Instagram End -->
+
+<!-- Footer Section Begin -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-7">
+                <div class="footer__about">
+                    <div class="footer__logo">
+                        <a href="../index"><img src="{% static 'img/logo.png' %}"alt=""></a>
+                    </div>
+                    <p>"Unveil a world of enchanting bridal fashion that transcends trends and captures the essence of your unique love story"
+                    </p>
+                    <div class="footer__payment">
+                        <a href="#"><img src="img/payment/payment-1.png" alt=""></a>
+                        <a href="#"><img src="img/payment/payment-2.png" alt=""></a>
+                        <a href="#"><img src="img/payment/payment-3.png" alt=""></a>
+                        <a href="#"><img src="img/payment/payment-4.png" alt=""></a>
+                        <a href="#"><img src="img/payment/payment-5.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-5">
+                <div class="footer__widget">
+                    <h6>Quick links</h6>
+                    <ul>
+                        <li><a href="#About us">About us</a></li>
+                        <li><a href="#services spad">services</a></li>
+                        <li><a href="#contact spad">Contact us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-4">
+                <div class="footer__widget">
+                    <h6>Account</h6>
+                    <ul>
+                        <li><a href="edit">My Account</a></li>
+                        <li><a href="booking_dtls">Orders Tracking</a></li>
+                        <li><a href="cart_details">Checkout</a></li>
+                        <li><a href="wish">Wishlist</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-8 col-sm-8">
+                <div class="footer__newslatter">
+<!--                    <h6>NEWSLETTER</h6>-->
+<!--                    <form action="#">-->
+<!--                        <input type="text" placeholder="Email">-->
+<!--                        <button type="submit" class="site-btn">Subscribe</button>-->
+<!--                    </form>-->
+                    <div class="footer__social">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-youtube-play"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                        <a href="#"><i class="fa fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                <div class="footer__copyright__text">
+                    <p>Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+                </div>
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Footer Section End -->
+
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+   <script src="{% static 'js/bootstrap.min.js' %}"></script>
+   <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+  <script src="{% static 'js/jquery-ui.min.js' %}"></script>
+  <script src="{% static 'js/mixitup.min.js' %}"></script>
+ <script src="{% static 'js/jquery.countdown.min.js' %}"></script>
+  <script src="{% static 'js/jquery.slicknav.js' %}"></script>
+  <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'js/jquery.nicescroll.min.js' %}"></script>
+   <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

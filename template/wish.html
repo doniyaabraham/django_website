@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <title>wishlist</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/elegant-icons.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+</head>
+<body>
+ <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Offcanvas Menu Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="offcanvas__close">+</div>
+        <ul class="offcanvas__widget">
+            <li><span class="icon_search search-switch"></span></li>
+            <li><a href="#"><span class="icon_heart_alt"></span>
+                <div class="tip">2</div>
+            </a></li>
+            <li><a href="#"><span class="icon_bag_alt"></span>
+                <div class="tip">2</div>
+            </a></li>
+        </ul>
+        <div class="offcanvas__logo">
+            <a href="../index."><img src="{% static 'img/logo.png' %}" alt=""></a>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+        <div class="header-btn">
+            <a class="login" href="logout">Logoout</a>
+            <a class="login" href="edit">Edit your profile </a>
+        </div>
+    </div>
+    <!-- Offcanvas Menu End -->
+
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-2 col-lg-2">
+                    <div class="header__logo">
+                        <a href="../index"><img src="{% static 'img/logo.png' %}" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-xl-7 col-lg-8">
+                    <nav class="header__menu">
+                        <ul>
+                            <li> <a href="../index">Home</a></li>
+                            <li class="active"><a href="wish">My Wishlists</a></li>
+                          <li> <a  href="logout">Logout</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+
+
+                       <div class="col-lg-3">
+                    <div class="header__right">
+
+                       <ul class="header__right__widget">
+
+
+                            <li><a href="search"><span class="icon_search"></span></a></li>
+                            <li><a href="wish"><span class="icon_heart_alt"></span>
+                                <div class="tip">{{wish_items}}</div>
+                            </a></li>
+                            <li><a href="cart_details"><span class="icon_bag_alt"></span>
+                                <div class="tip">{{count_items}}</div>
+                            </a></li>
+
+                        </ul>
+
+                   </div>
+                </div>
+            <div class="canvas__open">
+                <i class="fa fa-bars"></i>
+            </div>
+        </div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+
+ <div class="breadcrumb-option">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb__links">
+                        <a href="../index"><i class="fa fa-home"></i> Home</a>
+                        <span>My Whislists</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<br>
+<br>
+
+ <div class="container">
+        <div class="row">
+        <!-- Start of products loop -->
+        {% for i in data %}
+             <!-- Start new row if first iteration or every 4th iteration -->
+
+                <div class="row property__gallery">
+
+
+
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="product__item">
+                        <div class="product__item__pic set-bg" data-setbg="{{ i.product_details.image.url }}" style="max-width: 210px;">
+                            <ul class="product__hover">
+                                <li><a href="{{ i.product_details.image.url }}" class="image-popup"><span class="arrow_expand"></span></a></li>
+                                {% if i.product_details in user_wishlist %}
+                            <!-- Style the heart icon if the product is in the wishlist -->
+                            <span class="custom-tooltip">
+    <i class="fa fa-heart fa-2x " style="color: orange; "></i>
+                                <span class="tooltip-text">Wishlisted</span>
+                            </span>
+                        {% else %}
+                            <!-- Display the regular wishlist icon if the product is not in the wishlist -->
+                            <li><a href="wishcart/{{ i.pk }}"><span class="icon_heart_alt"></span></a></li>
+                        {% endif %}
+
+                                <li><a href="cart_details"><span class="icon_bag_alt"></span></a></li>
+                            </ul>
+                        </div>
+                        <div class="product__item__text">
+                            <h6><a href="#"style="max-width: 100%; height:200px">{{ i.product_details.product_name}}</a></h6>
+
+
+                            <span>Available size:{{ i.product_details.size}}</span>
+                            <div class="product__price"><i class="fa fa-rupee" style="color:black; font-size:15px "></i> </span>{{ i.product_details.price }}</div>
+<!--                <div class="fix">-->
+<!--&lt;!&ndash;                            <div class="btn"><a href="addcart/{{ i.pk }}" class="btn">ADDTO CART</a></div>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div class="btn"><a href="singlecart/{{ i.pk }}" class="btn">Buy</a></div>&ndash;&gt;-->
+<!--                    -->{% if i.product_details in user_wishlist1 %}
+                       <div class="fix">
+                         <div class="btn"><a href="cart_details" class="btn">GO TO CART</a></div>
+                        <div class="btn"><a href="removewish/{{ i.pk }}"  onclick="return confirm('Are you sure you want to remove from the wishlists?')" class="btn">REMOVE</a></div>
+                    </div>
+                            {% else %}
+                            <div class="fix">
+                        <div class="btn"><a href="addcart2/{{ i.pk }}" class="btn">ADD TO CART</a></div>
+                        <div class="btn"><a href="removewish/{{ i.pk }}"  onclick="return confirm('Are you sure you want to remove from the wishlists?')" class="btn">REMOVE</a></div>
+                    </div>
+                            {% endif %}
+
+                            </div>
+                    </div>
+                </div>
+            <!-- Close row if last iteration or every 4th iteration -->
+                </div>
+
+        {% endfor %}
+        <!-- End of products loop -->
+    </div>
+             </div>
+         </div>
+ <br>
+ <br>
+ <footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-7">
+                <div class="footer__about">
+                    <div class="footer__logo">
+                        <a href="../index"><img src="{% static 'img/logo.png' %}"alt=""></a>
+                    </div>
+                    <p>"Unveil a world of enchanting bridal fashion that transcends trends and captures the essence of your unique love story"
+                    </p>
+                    <div class="footer__payment">
+                        <a href="#"><img src="img/payment/payment-1.png" alt=""></a>
+                        <a href="#"><img src="img/payment/payment-2.png" alt=""></a>
+                        <a href="#"><img src="img/payment/payment-3.png" alt=""></a>
+                        <a href="#"><img src="img/payment/payment-4.png" alt=""></a>
+                        <a href="#"><img src="img/payment/payment-5.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-5">
+                <div class="footer__widget">
+                    <h6>Quick links</h6>
+                    <ul>
+                        <li><a href="#About us">About us</a></li>
+                        <li><a href="#services spad">services</a></li>
+                        <li><a href="#contact spad">Contact us</a></li>
+                        <li><a href="../wish">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-4">
+                <div class="footer__widget">
+                    <h6>Account</h6>
+                    <ul>
+                        <li><a href="../edit">My Account</a></li>
+                        <li><a href="../myorder">Orders Tracking</a></li>
+                        <li><a href="../cart_details">Checkout</a></li>
+                        <li><a href=">Wishlist</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-8 col-sm-8">
+                <div class="footer__newslatter">
+<!--                    <h6>NEWSLETTER</h6>-->
+<!--                    <form action="#">-->
+<!--                        <input type="text" placeholder="Email">-->
+<!--                        <button type="submit" class="site-btn">Subscribe</button>-->
+<!--                    </form>-->
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                <div class="footer__copyright__text">
+                    <p>Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+                </div>
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'js/jquery-ui.min.js' %}"></script>
+<script src="{% static 'js/mixitup.min.js' %}"></script>
+<script src="{% static 'js/jquery.countdown.min.js' %}"></script>
+<script src="{% static 'js/jquery.slicknav.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/jquery.nicescroll.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

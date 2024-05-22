@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bookings</title>
+    {% load static %}
+    <link href="{% static 'https://fonts.googleapis.com/css2?family=Cookie&display=swap' %}" rel="stylesheet">
+    <link href="{% static 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap' %}"
+    rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/elegant-icons.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+</head>
+<body>
+ <header class="header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-2 col-lg-2">
+                    <div class="header__logo">
+                        <a href="index"><img src="{% static 'img/logo.png' %}" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-xl-7 col-lg-8">
+                    <nav class="header__menu">
+                        <ul>
+                            <li> <a href="../index">Home</a></li>
+                            <li class><a href="cart_details">My Cart</a></li>
+                            <li class="active"><a href="../myorders">My orders</a></li>
+                          <li> <a  href="logout">Logout</a></li>
+                        </ul>
+                    </nav>
+                </div>
+</header>
+<div class="breadcrumb-option">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb__links">
+                        <a href="../index"><i class="fa fa-home"></i> Home</a>
+                        <span>My Order details</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<br>
+<br>
+
+{% if messages %}
+
+<div class="container" >
+
+<div class="alert alert-success alert-dismissible messages">
+
+  {% for message in messages %}
+
+   <button type="button" class="close" data-dismiss="alert">&times;</button>
+
+   {{message}}
+
+  </div>
+
+  {% endfor %}
+</div>
+
+{% endif %}
+
+
+    <div class="container-fluid">
+        <table class="table table-stripped mt-5">
+        <thead>
+          <tr>
+               <th>Deliery Address</th>
+              <th>item</th>
+              <th>image</th>
+              <th>quty</th>
+              <th>date</th>
+              <th>total price</th>
+              <th>payment status</th>
+              <th>status</th>
+              <th>action</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for i in l %}
+          <tr>
+            <td>{{i.user.username}}
+            <br>{{i.address}},
+            <br>{{i.city}},{{i.state}},{{i.country}}
+            {{i.pincode}}</td>
+            <td>{{i.product_details.product_name}}</td>
+              <td><img src="{{i.product_details.image.url}}" height="100" width="100" alt=""></td>
+              <td>{{i.quantity}}</td>
+            <td>{{i.created_at}}</td>
+
+            <td>{{i.product_details.price}}</td>
+              <td>{{i.payment_mode}}</td>
+
+               <td><a href="/user-order-track/{{i.id}}/" class="btn btn-primary" title="Track Status">{{i.get_statuss_display}}</a></td>
+<!--              <td>-->
+<!--                        <a href="" class="btn btn-success" title="Return Order" style=" height:32px; width:29px; background-color: green !important;"><i class="fa fa-refresh"></i></a>-->
+<!--                        <a href="" class="btn btn-success" title="Cancel Order" style=" height:32px; width:29px; background-color: red !important;"><span class="icon_close"></span></a>-->
+<!--                    </td>-->
+<!--               <td class="cart__close">-->
+<!--              <a href="remove/{{ i.pk }}" onclick="return confirm('Are you sure you want to remove from the cart?')" >-->
+<!--              <span class="icon_close"></span>-->
+<!--    </a>-->
+<td>
+    {% if i.statuss < 4 %}
+        <a href="/change-order-status/{{i.id}}/?statuss=5" class="btn btn-success" title="Cancel Order" style=" height:32px; width:29px; background-color: green !important;"><span class="icon_close"></span></a>
+    {% endif %}
+    {% if i.statuss == 4 %}
+        <a href="/change-order-status/{{i.id}}/?statuss=6" class="btn btn-danger" title="Return Order"  style=" height:32px; width:29px; background-color: red !important;"><span class="icon_close"></span></a></a>
+    {% endif %}
+    {% if i.statuss == 5 or i.statuss == 6 %}
+        -----
+    {% endif %}
+</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+ /
+<!-- <div class="container-fluid">-->
+<!--        <table class="table table-stripped mt-5">-->
+<!--        <thead>-->
+<!--          <tr>-->
+<!--               <th>Deliery Address</th>-->
+<!--              <th>item</th>-->
+<!--              <th>image</th>-->
+<!--              <th>quty</th>-->
+<!--              <th>date</th>-->
+<!--              <th>total price</th>-->
+<!--              <th>payment status</th>-->
+<!--              <th>status</th>-->
+<!--          </tr>-->
+<!--        </thead>-->
+<!--        <tbody>-->
+<!--        {% for i in l %}-->
+<!--          <tr>-->
+<!--            <td>{{i.orderdet.user}}-->
+<!--            <br>{{i.orderdet.address}},-->
+<!--            <br>{{i.orderdet.city}},{{i.orderdet.state}},{{i.orderdet.country}}-->
+<!--            {{i.orderdet.pincode}}</td>-->
+<!--            <td>{{i.product.product_name}}</td>-->
+<!--              <td><img src="{{i.product.image.url}}" height="100" width="100" alt=""></td>-->
+<!--              <td>{{i.quantity}}</td>-->
+<!--            <td>{{i.created_at}}</td>-->
+
+<!--            <td>{{i.price}}</td>-->
+<!--              <td>{{i.orderdet.payment_mode}}</td>-->
+<!--                 <td>{{i.orderdet.status}}</td>-->
+<!--&lt;!&ndash;               <td class="cart__close">&ndash;&gt;-->
+<!--&lt;!&ndash;              <a href="remove/{{ i.pk }}" onclick="return confirm('Are you sure you want to remove from the cart?')" >&ndash;&gt;-->
+<!--&lt;!&ndash;              <span class="icon_close"></span>&ndash;&gt;-->
+<!--&lt;!&ndash;    </a>&ndash;&gt;-->
+<!--</td>-->
+<!--          </tr>-->
+<!--        {% endfor %}-->
+<!--        </tbody>-->
+<!--      </table>-->
+<!--    </div>-->
+  <br>
+ <br>
+ <footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-7">
+                <div class="footer__about">
+                    <div class="footer__logo">
+                        <a href="../index"><img src="{% static 'img/logo.png' %}"alt=""></a>
+                    </div>
+                    <p>"Unveil a world of enchanting bridal fashion that transcends trends and captures the essence of your unique love story"
+                    </p>
+                    <div class="footer__payment">
+                        <a href="#"><img src="img/payment/payment-1.png" alt=""></a>
+                        <a href="#"><img src="img/payment/payment-2.png" alt=""></a>
+                        <a href="#"><img src="img/payment/payment-3.png" alt=""></a>
+                        <a href="#"><img src="img/payment/payment-4.png" alt=""></a>
+                        <a href="#"><img src="img/payment/payment-5.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-5">
+                <div class="footer__widget">
+                    <h6>Quick links</h6>
+                    <ul>
+                        <li><a href="#About us">About us</a></li>
+                        <li><a href="#services spad">services</a></li>
+                        <li><a href="#contact spad">Contact us</a></li>
+                        <li><a href="../wish">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-4">
+                <div class="footer__widget">
+                    <h6>Account</h6>
+                    <ul>
+                        <li><a href="../edit">My Account</a></li>
+                        <li><a href="../myorder">Orders Tracking</a></li>
+                        <li><a href="../cart_details">Checkout</a></li>
+                        <li><a href=">Wishlist</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-8 col-sm-8">
+                <div class="footer__newslatter">
+<!--                    <h6>NEWSLETTER</h6>-->
+<!--                    <form action="#">-->
+<!--                        <input type="text" placeholder="Email">-->
+<!--                        <button type="submit" class="site-btn">Subscribe</button>-->
+<!--                    </form>-->
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                <div class="footer__copyright__text">
+                    <p>Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+                </div>
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'js/jquery-ui.min.js' %}"></script>
+<script src="{% static 'js/mixitup.min.js' %}"></script>
+<script src="{% static 'js/jquery.countdown.min.js' %}"></script>
+<script src="{% static 'js/jquery.slicknav.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/jquery.nicescroll.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="description" content="Ashion Template">
+    <meta name="keywords" content="Ashion, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ashion | Template</title>
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/elegant-icons.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/slicknav.min.css' %}" type="text/css">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+</head>
+<body>
+    <!-- Page Preloder -->
+<!--    <div id="preloder">-->
+<!--        <div class="loader"></div>-->
+<!--    </div>-->
+
+<!--    &lt;!&ndash; Offcanvas Menu Begin &ndash;&gt;-->
+<!--    <div class="offcanvas-menu-overlay"></div>-->
+<!--    <div class="offcanvas-menu-wravper">-->
+<!--        <div class="offcanvas__close">+</div>-->
+<!--        <ul class="offcanvas__widget">-->
+<!--            <li><span class="icon_search search-switch"></span></li>-->
+<!--            <li><a href="#"><span class="icon_heart_alt"></span>-->
+<!--                <div class="tip">{{wish_items}}</div>-->
+<!--            </a></li>-->
+<!--            <li><a href="#"><span class="icon_bag_alt"></span>-->
+<!--                <div class="tip">{{count_items}}</div>-->
+<!--            </a></li>-->
+<!--        </ul>-->
+<!--        <div class="offcanvas__logo">-->
+<!--            <a href="./index.html"><img src="{% static 'img/logo.png' %}" alt=""></a>-->
+<!--        </div>-->
+<!--        <div id="mobile-menu-wrap"></div>-->
+<!--        <div class="offcanvas__auth">-->
+<!--            <a href="#">Login</a>-->
+<!--            <a href="#">Register</a>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    &lt;!&ndash; Offcanvas Menu End &ndash;&gt;-->
+
+    <!-- Header Section Begin -->
+
+     <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Offcanvas Menu Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="offcanvas__close">+</div>
+        <ul class="offcanvas__widget">
+            <li><span class="icon_search search-switch"></span></li>
+            <li><a href="#"><span class="icon_heart_alt"></span>
+                <div class="tip">{{wish_items}}</div>
+            </a></li>
+            <li><a href="#"><span class="icon_bag_alt"></span>
+                <div class="tip">{{count_items}}</div>
+            </a></li>
+        </ul>
+        <div class="offcanvas__logo">
+            <a href="./index.html"><img src="img/logo.png" alt=""></a>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+        <div class="offcanvas__auth">
+            <a href="#">Login</a>
+            <a href="#">Register</a>
+        </div>
+    </div>
+    <header class="header header__menu fixed-top">
+        <!-- <nav class= "header__menu fixed-top" style="padding: 30px 0 10px;!important;"></nav> -->
+        <div class="container-fluid" >
+            <div class="row" >
+                <div class="col-xl-2 col-lg-2">
+                    <div class="header__logo">
+                        <a href="./index.html"><img src="{% static 'img/logo.png' %}" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-xl-8 col-lg-8">
+                    <nav class="header__menu">
+                        <ul>
+                            <li class="active"><a href="index.">Home</a></li>
+                            <li><a href="#">Women’s</a>
+                            <ul class="dropdown">
+                                 <li><a href="#Lehenga and Gowns">Lehenga and Gowns</a></li>
+                                    <li><a href="#WAccessiores">Accessiores</a></li>
+
+                                    <li><a href="#wShoes">Shoes</a></li>
+
+                                </ul></li>
+                            <li ><a href="#">Men’s</a>
+                              <ul class="dropdown" >
+                                  <li><a href="#mens">Suits</a></li>
+                                    <li><a href="#MAccessiores">Accessiores</a></li>
+                                  <li><a href="#mShoes">Shoes</a></li>
+
+                                </ul>
+                            </li>
+
+
+                            <li><a href="#About us">About Us</a>
+
+                            </li>
+                            <li><a href="#services spad">Services</a></li>
+                            <li><a href="#contact spad">Contact Us</a></li>
+                            <li><a href="#contact spad">Account</a>
+                            <ul class="dropdown">
+
+                                  <li><a href="../edit">👤 {{user.username}}</a></li>
+                                    <li><a href="../wish">My whislists</a></li>
+                                  <li><a href="../cart_details">My Cart</a></li>
+                                <li><a href="../myorder">My Orders</a></li>
+
+                                </ul></li>
+                        </ul>
+                    </nav>
+                </div>
+
+
+
+                       <div class="col-lg-2">
+                    <div class="header__right">
+
+                       <ul class="header__right__widget">
+
+<!--                           <li>   <a class="login" href="edit">My Account</a></li>-->
+
+<li> <a class="login" href="logout">Logout</a></li>
+
+                           <li><a href="search"><span class="icon_search"></span></a></li>
+                            <li><a href="wish"><span class="icon_heart_alt"></span>
+                                <div class="tip">{{wish_items}}</div>
+                            </a></li>
+                            <li><a href="cart_details"><span class="icon_bag_alt"></span>
+                                <div class="tip">{{count_items}}</div>
+                            </a></li>
+
+                        </ul>
+
+                   </div>
+                </div>
+            <div class="canvas__open">
+                <i class="fa fa-bars"></i>
+            </div>
+        </div>
+        </div>
+    </header>
+    <br>
+    <br>
+    <!-- Header Section End -->
+
+    <!-- Categories Section Begin -->
+
+
+    <section class="categories">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6 p-0">
+                    <div class="categories__item categories__large__item set-bg"
+                    data-setbg="{% static 'img/categories/im3.jpg' %}">
+                    <div class="categories__text">
+                        <h1>Women’s fashion</h1>
+                        <p>"Step into a world of timeless elegance and make your dream day unforgettable. Our bridal wears aren't just dresses; they are a promise of sophistication, grace, and unparalleled beauty".</p>
+                        <a href="#Lehenga and Gowns">Shop now</a>
+                    </div>
+                </div>
+            </div>
+                <div class="col-lg-6">
+                     <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 p-0">
+                        <div class="categories__item set-bg" data-setbg="{% static 'img/categories/ma.jpg' %}">
+                            <div class="categories__text">
+                                <h4>Men’s fashion</h4>
+                                <p>273 items</p>
+                                <a href="#mens">Shop now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 p-0">
+                        <div class="categories__item set-bg" data-setbg="{% static 'img/categories/shoes.jpg' %}">
+                            <div class="categories__text">
+                                <h4>Footwears</h4>
+                                <p>159 items</p>
+                                <a href="#wShoes">Shop now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 p-0">
+                        <div class="categories__item set-bg" data-setbg="{% static 'img/categories/im4.jpg' %}">
+                            <div class="categories__text">
+                                <h4>Accessories</h4>
+                                <p>792 items</p>
+                                <a href="#WAccessiores">Shop now</a>
+                            </div>
+                             </div>
+                        </div>
+                          <div class="col-lg-6 col-md-6 col-sm-6 p-0">
+                           <div class="categories__item set-bg" data-setbg="{% static 'img/categories/im5.jpg' %}">
+                             <div class="categories__text">
+                                <h4>Bridal Wears</h4>
+                                <p>792 items</p>
+                                <a href="#Lehenga and Gowns">Shop now</a>
+                            </div>
+                    </div>
+                </div>
+               </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <div class="breadcrumb-option">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb__links">
+                        <a href="../index"><i class="fa fa-home"></i> Home</a>
+                        <span>Shop Now</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<br>
+<br>
+<!-- Categories Section End -->
+
+ <section id="Lehenga and Gowns">
+
+    <div class="container">
+        <div class="row">
+        <!-- Start of products loop -->
+        {% for i in product %}
+             <!-- Start new row if first iteration or every 4th iteration -->
+            {% if i.category == 'womens' %}
+                <div class="row property__gallery">
+
+
+
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="product__item">
+                        <div class="product__item__pic set-bg" data-setbg="{{ i.image.url }}" style="max-width: 210px;">
+
+                            <ul class="product__hover">
+<li><a href="addimage/{{ i.pk }}" ><span class="arrow_expand"></span></a></li>
+                                {% if i.pk in wish_item %}
+                            <!-- Style the heart icon if the product is in the wishlist -->
+                            <span class="custom-tooltip">
+    <i class="fa fa-heart fa-2x " style="color: orange; "></i>
+                                <span class="tooltip-text">Wishlisted</span>
+                            </span>
+                        {% else %}
+                            <!-- Display the regular wishlist icon if the product is not in the wishlist -->
+                            <li><a href="wishcart/{{ i.pk }}"><span class="icon_heart_alt"></span></a></li>
+                        {% endif %}
+
+                                <li><a href="cart_details"><span class="icon_bag_alt"></span></a></li>
+                            </ul>
+                        </div>
+<!--                        <div class="product__item__text">-->
+<!--                            <h6><a href="#"style="max-width: 100%; height:200px">{{ i.product_name }}</a></h6>-->
+
+<!--                             <span>Available size:{{ i.size}}</span>-->
+<!--                            <div class="product__price"><i class="fa fa-rupee" style="color:black; font-size:15px "></i> </span>{{ i.price }}</div>-->
+
+<!--                  {% if i.pk in count_item %}-->
+
+<!--                            <div class="product__details__button"><a href="cart_details" class="cart-btn"><i class="fa fa-shopping-cart" style="color: white; font-size:19px "></i> Go to cart</a>-->
+<!--                            </div>-->
+<!--&lt;!&ndash;                            <div class="btn"><a href="/view-product/?image_url={{ i.image.url }}" class="btn">View</a></div>&ndash;&gt;-->
+<!--                            {% else %}-->
+<!--                            <div class="product__details__button"><a href="addcart/{{ i.pk }}" class="cart-btn"><span class="icon_bag_alt"></span> Add to cart</a>-->
+<!--                            </div>-->
+<!--                            {% endif %}-->
+
+<!--                            </div>-->
+                        <div class="product__item__text">
+                                <h6><a href="#">{{ i.product_name }}</a></h6>
+<!--                                <span>Available size:{{ i.size }}</span>-->
+                                <div class="product__price"><i class="fa fa-rupee" style="color:black; font-size:15px;"></i> {{ i.price }}</div>
+                                {% if i.stock > 0 %}
+                                    {% if i.pk in count_item %}
+                                        <div class="product__details__button"><a href="cart_details" class="cart-btn disabled"><i class="fa fa-shopping-cart" style="color: white; font-size:19px;"></i> Go to cart</a></div>
+                                    {% else %}
+                                        <div class="product__details__button"><a href="addcart/{{ i.pk }}" class="cart-btn"><span class="icon_bag_alt"></span> Add to cart</a></div>
+                                    {% endif %}
+                                {% else %}
+                                    <div class="product__details__button"><a href="#" class="cart-btn disabled">Out of Stock</a></div>
+                                {% endif %}
+                            </div>
+                    </div>
+                </div>
+
+                </div>
+            {% endif %}
+        {% endfor %}
+        <!-- End of products loop -->
+    </div>
+             </div>
+         </div>
+</section>
+    <section id="WAccessiores">
+
+    <div class="container">
+        <div class="row">
+        <!-- Start of products loop -->
+        {% for i in product %}
+             <!-- Start new row if first iteration or every 4th iteration -->
+            {% if i.category == 'maccessories' %}
+                <div class="row property__gallery">
+
+
+
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="product__item">
+                        <div class="product__item__pic set-bg" data-setbg="{{ i.image.url }}" style="max-width: 210px;">
+                            <ul class="product__hover">
+<li><a href="addimage/{{ i.pk }}" ><span class="arrow_expand"></span></a></li>
+                                {% if i.pk in wish_item %}
+                            <!-- Style the heart icon if the product is in the wishlist -->
+                            <span class="custom-tooltip">
+    <i class="fa fa-heart fa-2x " style="color: orange; "></i>
+                                <span class="tooltip-text">Wishlisted</span>
+                            </span>
+                        {% else %}
+                            <!-- Display the regular wishlist icon if the product is not in the wishlist -->
+                            <li><a href="wishcart/{{ i.pk }}"><span class="icon_heart_alt"></span></a></li>
+                        {% endif %}
+
+                                <li><a href="cart_details"><span class="icon_bag_alt"></span></a></li>
+                            </ul>
+                        </div>
+<!--                        <div class="product__item__text">-->
+<!--                            <h6><a href="#"style="max-width: 100%; height:200px">{{ i.product_name }}</a></h6>-->
+
+<!--                             <span>Available size:{{ i.size}}</span>-->
+<!--                            <div class="product__price"><i class="fa fa-rupee" style="color:black; font-size:15px "></i> </span>{{ i.price }}</div>-->
+<!--&lt;!&ndash;                <div class="fix">&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                            <div class="btn"><a href="addcart/{{ i.pk }}" class="btn">ADDTO CART</a></div>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                            <div class="btn"><a href="singlecart/{{ i.pk }}" class="btn">Buy</a></div>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                    &ndash;&gt;{% if i.pk in count_item %}-->
+<!--&lt;!&ndash;                        </div>&ndash;&gt;<div class="product__details__button"><a href="cart_details" class="cart-btn"><i class="fa fa-shopping-cart" style="color: white; font-size:19px "></i> Go to cart</a>-->
+<!--                            </div>-->
+<!--                            {% else %}-->
+<!--                            <div class="product__details__button"><a href="addcart/{{ i.pk }}" class="cart-btn"><span class="icon_bag_alt"></span> Add to cart</a>-->
+<!--                            </div>-->
+<!--                            {% endif %}-->
+
+<!--                            </div>-->
+                        <div class="product__item__text">
+                                <h6><a href="#">{{ i.product_name }}</a></h6>
+<!--                                <span>Available size:{{ i.size }}</span>-->
+                                <div class="product__price"><i class="fa fa-rupee" style="color:black; font-size:15px;"></i> {{ i.price }}</div>
+                                {% if i.stock > 0 %}
+                                    {% if i.pk in count_item %}
+                                        <div class="product__details__button"><a href="cart_details" class="cart-btn disabled"><i class="fa fa-shopping-cart" style="color: white; font-size:19px;"></i> Go to cart</a></div>
+                                    {% else %}
+                                        <div class="product__details__button"><a href="addcart/{{ i.pk }}" class="cart-btn"><span class="icon_bag_alt"></span> Add to cart</a></div>
+                                    {% endif %}
+                                {% else %}
+                                    <div class="product__details__button"><a href="#" class="cart-btn disabled">Out of Stock</a></div>
+                                {% endif %}
+                            </div>
+                    </div>
+                </div>
+            <!-- Close row if last iteration or every 4th iteration -->
+                </div>
+            {% endif %}
+        {% endfor %}
+        <!-- End of products loop -->
+    </div>
+             </div>
+         </div>
+</section>
+     <section id="wShoes">
+
+    <div class="container">
+        <div class="row">
+        <!-- Start of products loop -->
+        {% for i in product %}
+             <!-- Start new row if first iteration or every 4th iteration -->
+            {% if i.category == 'Wshoes' %}
+                <div class="row property__gallery">
+
+
+
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="product__item">
+                        <div class="product__item__pic set-bg" data-setbg="{{ i.image.url }}" style="max-width: 210px;">
+                            <ul class="product__hover">
+                                <li><a href="addimage/{{ i.pk }}" ><span class="arrow_expand"></span></a></li>
+                                {% if i.pk in wish_item %}
+                            <!-- Style the heart icon if the product is in the wishlist -->
+                            <span class="custom-tooltip">
+    <i class="fa fa-heart fa-2x " style="color: orange; "></i>
+                                <span class="tooltip-text">Wishlisted</span>
+                            </span>
+                        {% else %}
+                            <!-- Display the regular wishlist icon if the product is not in the wishlist -->
+                            <li><a href="wishcart/{{ i.pk }}"><span class="icon_heart_alt"></span></a></li>
+                        {% endif %}
+
+                                <li><a href="cart_details"><span class="icon_bag_alt"></span></a></li>
+                            </ul>
+                        </div>
+                        <div class="product__item__text">
+                                <h6><a href="#">{{ i.product_name }}</a></h6>
+<!--                                <span>Available size:{{ i.size }}</span>-->
+                                <div class="product__price"><i class="fa fa-rupee" style="color:black; font-size:15px;"></i> {{ i.price }}</div>
+                                {% if i.stock > 0 %}
+                                    {% if i.pk in count_item %}
+                                        <div class="product__details__button"><a href="cart_details" class="cart-btn disabled"><i class="fa fa-shopping-cart" style="color: white; font-size:19px;"></i> Go to cart</a></div>
+                                    {% else %}
+                                        <div class="product__details__button"><a href="addcart/{{ i.pk }}" class="cart-btn"><span class="icon_bag_alt"></span> Add to cart</a></div>
+                                    {% endif %}
+                                {% else %}
+                                    <div class="product__details__button"><a href="#" class="cart-btn disabled">Out of Stock</a></div>
+                                {% endif %}
+                            </div>
+                    </div>
+                </div>
+            <!-- Close row if last iteration or every 4th iteration -->
+                </div>
+            {% endif %}
+        {% endfor %}
+        <!-- End of products loop -->
+    </div>
+             </div>
+         </div>
+</section>
+
+    <section id="mens">
+    <div class="container">
+        <div class="row">
+            <!-- Start of products loop -->
+            {% for i in product %}
+                {% if i.category == 'mens' %}
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="product__item">
+                            <div class="product__item__pic set-bg" data-setbg="{{ i.image.url }}" style="max-width: 210px;">
+                                <ul class="product__hover">
+                                    <li><a href="addimage/{{ i.pk }}" ><span class="arrow_expand"></span></a></li>
+                                    {% if i.pk in wish_item %}
+                                        <!-- Style the heart icon if the product is in the wishlist -->
+                                        <span class="custom-tooltip">
+                                            <i class="fa fa-heart fa-2x" style="color: orange;"></i>
+                                            <span class="tooltip-text">Wishlisted</span>
+                                        </span>
+                                    {% else %}
+                                        <li><a href="wishcart/{{ i.pk }}"><span class="icon_heart_alt"></span></a></li>
+                                    {% endif %}
+                                    <li><a href="cart_details"><span class="icon_bag_alt"></span></a></li>
+                                </ul>
+                            </div>
+                            <div class="product__item__text">
+                                <h6><a href="#">{{ i.product_name }}</a></h6>
+<!--                                <span>Available size:{{ i.size }}</span>-->
+                                <div class="product__price"><i class="fa fa-rupee" style="color:black; font-size:15px;"></i> {{ i.price }}</div>
+                                {% if i.stock > 0 %}
+                                    {% if i.pk in count_item %}
+                                        <div class="product__details__button"><a href="cart_details" class="cart-btn disabled"><i class="fa fa-shopping-cart" style="color: white; font-size:19px;"></i> Go to cart</a></div>
+                                    {% else %}
+                                        <div class="product__details__button"><a href="addcart/{{ i.pk }}" class="cart-btn"><span class="icon_bag_alt"></span> Add to cart</a></div>
+                                    {% endif %}
+                                {% else %}
+                                    <div class="product__details__button" ><a href="#" class="cart-btn disabled" style="background-color: orange !important;">Out of Stock</a></div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+ <section id="MAccessiores">
+
+    <div class="container">
+          <div class="row">
+        <!-- Start of products loop -->
+        {% for i in product %}
+{% if i.category == 'waccessories' %}
+                <div class="row property__gallery">
+
+
+                          <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="product__item">
+                        <div class="product__item__pic set-bg" data-setbg="{{ i.image.url }}" style="max-width: 210px;">
+                            <ul class="product__hover">
+                               <li><a href="addimage/{{ i.pk }}" ><span class="arrow_expand"></span></a></li>
+                                {% if i.pk in wish_item %}
+                            <!-- Style the heart icon if the product is in the wishlist -->
+                            <span class="custom-tooltip">
+    <i class="fa fa-heart fa-2x " style="color: orange; "></i>
+                                <span class="tooltip-text">Wishlisted</span>
+                            </span>
+                        {% else %}
+                            <!-- Display the regular wishlist icon if the product is not in the wishlist -->
+                            <li><a href="wishcart/{{ i.pk }}"><span class="icon_heart_alt"></span></a></li>
+                        {% endif %}
+
+                                <li><a href="cart_details"><span class="icon_bag_alt"></span></a></li>
+                            </ul>
+                        </div>
+                       <div class="product__item__text">
+                                <h6><a href="#">{{ i.product_name }}</a></h6>
+<!--                                <span>Available size:{{ i.size }}</span>-->
+                                <div class="product__price"><i class="fa fa-rupee" style="color:black; font-size:15px;"></i> {{ i.price }}</div>
+                                {% if i.stock > 0 %}
+                                    {% if i.pk in count_item %}
+                                        <div class="product__details__button"><a href="cart_details" class="cart-btn disabled"><i class="fa fa-shopping-cart" style="color: white; font-size:19px;"></i> Go to cart</a></div>
+                                    {% else %}
+                                        <div class="product__details__button"><a href="addcart/{{ i.pk }}" class="cart-btn"><span class="icon_bag_alt"></span> Add to cart</a></div>
+                                    {% endif %}
+                                {% else %}
+                                    <div class="product__details__button"><a href="#" class="cart-btn disabled"style="background-color: orange !important;">Out of Stock</a></div>
+                                {% endif %}
+                            </div>
+                         </div>
+                    </div>
+                </div>
+
+            {% endif %}
+        {% endfor %}
+        </div>
+            </div>
+    </div>
+</section>
+
+    <section id="mShoes">
+
+    <div class="container">
+        <div class="row">
+        <!-- Start of products loop -->
+        {% for i in product %}
+             <!-- Start new row if first iteration or every 4th iteration -->
+            {% if i.category == 'Mshoes' %}
+                <div class="row property__gallery">
+
+
+
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="product__item">
+                        <div class="product__item__pic set-bg" data-setbg="{{ i.image.url }}" style="max-width: 210px;">
+                            <ul class="product__hover">
+                                 <li><a href="addimage/{{ i.pk }}" ><span class="arrow_expand"></span></a></li>
+
+                                {% if i.pk in wish_item %}
+                            <!-- Style the heart icon if the product is in the wishlist -->
+                            <span class="custom-tooltip">
+    <i class="fa fa-heart fa-2x " style="color: orange; "></i>
+                                <span class="tooltip-text">Wishlisted</span>
+                            </span>
+                        {% else %}
+                            <!-- Display the regular wishlist icon if the product is not in the wishlist -->
+                            <li><a href="wishcart/{{ i.pk }}"><span class="icon_heart_alt"></span></a></li>
+                        {% endif %}
+
+                                <li><a href="cart_details"><span class="icon_bag_alt"></span></a></li>
+                            </ul>
+                        </div>
+                        <div class="product__item__text">
+                                <h6><a href="#">{{ i.product_name }}</a></h6>
+                                <span>Available size:{{ i.size }}</span>
+                                <div class="product__price"><i class="fa fa-rupee" style="color:black; font-size:15px;"></i> {{ i.price }}</div>
+                                {% if i.stock > 0 %}
+                                    {% if i.pk in count_item %}
+                                        <div class="product__details__button"><a href="cart_details" class="cart-btn disabled"><i class="fa fa-shopping-cart" style="color: white; font-size:19px;"></i> Go to cart</a></div>
+                                    {% else %}
+                                        <div class="product__details__button"><a href="addcart/{{ i.pk }}" class="cart-btn"><span class="icon_bag_alt"></span> Add to cart</a></div>
+                                    {% endif %}
+                                {% else %}
+                                    <div class="product__details__button"><a href="#" class="cart-btn disabled" style="background-color: orange !important;">Out of Stock</a></div>
+                                {% endif %}
+                            </div>
+                    </div>
+                </div>
+            <!-- Close row if last iteration or every 4th iteration -->
+                </div>
+            {% endif %}
+        {% endfor %}
+        <!-- End of products loop -->
+    </div>
+             </div>
+         </div>
+</section>
+
+<section class="banner set-bg" >
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-7 col-lg-8 m-auto">
+                <div class="banner__slider owl-carousel">
+                    <div class="banner__item" style="background-color:url('{% static 'img/categories/im2.jpg' %}')">
+                        <div class="banner__text">
+                            <span>"Elegance for your dream day."</span>
+                            <h1>The Trending Bridal wears</h1>
+                            <a href="#Lehenga and Gowns">Shop now</a>
+                        </div>
+                    </div>
+                    <div class="banner__item" data-setbg="{% static 'img/categories/im3.jpg' %}">
+                        <div class="banner__text">
+                            <span>The Chloe Collection</span>
+                            <h1>Minimal Necklace</h1>
+                            <a href="#WAccessiores">Shop now</a>
+                        </div>
+                    </div>
+                    <div class="banner__item">
+                        <div class="banner__text">
+                            <span>The Chloe Collection</span>
+                            <h1>Cool Boots </h1>
+                            <a href="#wShoes">Shop now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="trend spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="trend__content">
+                    <div class="section-title">
+                        <h4>Hot Trend</h4>
+                    </div>
+                    <div class="trend__item">
+                        <div class="trend__item__pic">
+                            <img src="{% static 'img/categories/im5.jpg' %}" height="100" width="100" alt="">
+                        </div>
+                        <div class="trend__item__text">
+                            <h6>pink lehenga</h6>
+
+                            <div class="product__price"><i class="fa fa-rupee" style="color:black; font-size:15px "></i> </span>6000</div>
+
+                        </div>
+                    </div>
+                    <div class="trend__item">
+                        <div class="trend__item__pic">
+                            <img src="{% static 'img/trend/ht-2.jpg' %}" alt="">
+                        </div>
+                        <div class="trend__item__text">
+                            <h6>Pendant earrings</h6>
+<div class="product__price"><i class="fa fa-rupee" style="color:black; font-size:15px "></i> </span>1000</div>
+
+                        </div>
+                    </div>
+                    <div class="trend__item">
+                        <div class="trend__item__pic">
+                            <img src="{% static 'img/categories/im3.jpg' %}" height="100" width="100" alt="">
+                        </div>
+                        <div class="trend__item__text">
+                            <h6>white gowns</h6>
+
+                         <div class="product__price"><i class="fa fa-rupee" style="color:black; font-size:15px "></i> </span>8000</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="trend__content">
+                    <div class="section-title">
+                        <h4>Best seller</h4>
+                    </div>
+                    <div class="trend__item">
+                        <div class="trend__item__pic">
+                            <img src="{% static 'img/categories/im2.jpg' %}"  height="100" width="100" alt="">
+                        </div>
+                        <div class="trend__item__text">
+                            <h6>heavy Red lehenga</h6>
+
+                           <div class="product__price"><i class="fa fa-rupee" style="color:black; font-size:15px "></i> </span>1000</div>
+                        </div>
+                    </div>
+                    <div class="trend__item">
+                        <div class="trend__item__pic">
+                            <img src="{% static 'img/categories/im6.jpg' %}"  height="100" width="100" alt="">
+                        </div>
+                        <div class="trend__item__text">
+                            <h6>blue lehenga</h6>
+
+                             <div class="product__price"><i class="fa fa-rupee" style="color:black; font-size:15px "></i> </span>3000</div>
+
+                        </div>
+                    </div>
+                    <div class="trend__item">
+                        <div class="trend__item__pic">
+                            <img src="{% static 'img/categories/im7.jpg' %}"  height="100" width="100" alt="">
+                        </div>
+                        <div class="trend__item__text">
+                            <h6>light weight heels</h6>
+
+     <div class="product__price"><i class="fa fa-rupee" style="color:black; font-size:15px "></i> </span>1000</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="trend__content">
+                    <div class="section-title">
+                        <h4>Feature</h4>
+                    </div>
+                    <div class="trend__item">
+                        <div class="trend__item__pic">
+                            <img src="{% static 'img/categories/im8.jpeg' %}"  height="100" width="100" alt="">
+                        </div>
+                        <div class="trend__item__text">
+                            <h6>Brown offwhite shoes</h6>
+
+                           <div class="product__price"><i class="fa fa-rupee" style="color:black; font-size:15px "></i> </span>1000</div>
+                        </div>
+                    </div>
+                    <div class="trend__item">
+                        <div class="trend__item__pic">
+                            <img src="{% static 'img/trend/f-2.jpg' %}" alt="">
+                        </div>
+                        <div class="trend__item__text">
+                            <h6>Metallic earrings</h6>
+
+<div class="product__price"><i class="fa fa-rupee" style="color:black; font-size:15px "></i> </span>2000</div>
+                        </div>
+                    </div>
+                    <div class="trend__item">
+                        <div class="trend__item__pic">
+                             <img src="{% static 'img/categories/im9.jpg' %}"  height="100" width="100" alt="">
+                        </div>
+                        <div class="trend__item__text">
+                            <h6>Diamond jewel</h6>
+
+                             <div class="product__price"><i class="fa fa-rupee" style="color:black; font-size:15px "></i> </span>3000</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--
+<section class="discount">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 p-0">
+                <div class="discount__pic">
+                    <img src="img/discount.jpg" alt="">
+                </div>
+            </div>
+            <div class="col-lg-6 p-0">
+                <div class="discount__text">
+                    <div class="discount__text__title">
+                        <span>Discount</span>
+                        <h2>Summer 2019</h2>
+                        <h5><span>Sale</span> 50%</h5>
+                    </div>
+                    <div class="discount__countdown" id="countdown-time">
+                        <div class="countdown__item">
+                            <span>22</span>
+                            <p>Days</p>
+                        </div>
+                        <div class="countdown__item">
+                            <span>18</span>
+                            <p>Hour</p>
+                        </div>
+                        <div class="countdown__item">
+                            <span>46</span>
+                            <p>Min</p>
+                        </div>
+                        <div class="countdown__item">
+                            <span>05</span>
+                            <p>Sec</p>
+                        </div>
+                    </div>
+                    <a href="#">Shop now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+Discount Section Begin -->
+<!-- Discount Section End -->
+    <section id="About us">
+<section class="about">
+         <div class="main">
+
+
+                   <img src="{% static 'img/categories/about.jpg' %}">
+                  <div class="about-text">
+                     <h1>About Us</h1>
+                      
+                     <p >Our journey began with a simple yet profound vision: to be a trusted companion in your wedding planning journey. As you navigate the myriad of choices available, our dedicated team is here to assist, guide, and inspire you every step of the way.Whether you're seeking timeless classics or modern innovations, [Your Website Name] is your one-stop destination for all things wedding. Join us as we embark on this beautiful journey together, celebrating love, commitment, and the magical moments that define the beginning of forever.</p>
+
+                     <a href="#contact spad" class="readmore" >let's Talk</a>
+
+            </div>
+         </div>
+    </section>
+    </section>
+      <!-- about section end -->
+<!-- Services Section Begin -->
+    <section id="services spad">
+<section class="services spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="services__item">
+                    <i class="fa fa-car"></i>
+                    <h6>Free Shipping</h6>
+                    <p>For all oder </p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="services__item">
+                    <i class="fa fa-money"></i>
+                    <h6>Money Back Guarantee</h6>
+                    <p>If good have Problems</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="services__item">
+                    <i class="fa fa-support"></i>
+                    <h6>Online Support 24/7</h6>
+                    <p>Dedicated support</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="services__item">
+                    <i class="fa fa-headphones"></i>
+                    <h6>Payment Secure</h6>
+                    <p>100% secure payment</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+        </section>
+<!-- Services Section End -->
+    <!-- Contact Section Begin -->
+    <section id="contact spad">
+    <section class="contact spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="contact__content">
+                        <div class="contact__address">
+                            <h5>Contact info</h5>
+                            <ul>
+                                <li>
+                                    <h6><i class="fa fa-map-marker"></i> Address</h6>
+                                    <p>160 Pennsylvania Ave NW, Washington, Castle, PA 16101-5161</p>
+                                </li>
+                                <li>
+                                    <h6><i class="fa fa-phone"></i> Phone</h6>
+                                    <p><span>125-711-811</span><span>125-668-886</span></p>
+                                </li>
+                                <li>
+                                    <h6><i class="fa fa-headphones"></i> Support</h6>
+                                    <p><a href="mailto:ashionfashionwebsite@gmail.com">ashionfashionwebsite@gmail.com</a></p>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="contact__form">
+                            <h5>SEND MESSAGE</h5>
+                             <form action="" method="post" enctype="multipart/form-data">
+                               {% csrf_token %}
+<input type="text" placeholder="Name"   name="name" required>
+                                <input type="text" placeholder="Email"  name="email"required>
+                                <textarea placeholder="Message" name="mssg" required></textarea>
+                                <button type="submit" class="site-btn">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="contact__map">
+                        <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48158.305462977965!2d-74.13283844036356!3d41.02757295168286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2e440473470d7%3A0xcaf503ca2ee57958!2sSaddle%20River%2C%20NJ%2007458%2C%20USA!5e0!3m2!1sen!2sbd!4v1575917275626!5m2!1sen!2sbd"
+                        height="780" style="border:0" allowfullscreen="">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    </section>
+<!-- Contact Section End -->
+<!-- Instagram Begin -->
+<!--<div class="instagram">-->
+<!--    <div class="container-fluid">-->
+<!--        <div class="row">-->
+<!--            <div class="col-lg-2 col-md-4 col-sm-4 p-0">-->
+<!--                <div class="instagram__item set-bg" data-setbg="img/instagram/insta-1.jpg">-->
+<!--                    <div class="instagram__text">-->
+<!--                        <i class="fa fa-instagram"></i>-->
+<!--                        <a href="#">@ ashion_shop</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-lg-2 col-md-4 col-sm-4 p-0">-->
+<!--                <div class="instagram__item set-bg" data-setbg="img/instagram/insta-2.jpg">-->
+<!--                    <div class="instagram__text">-->
+<!--                        <i class="fa fa-instagram"></i>-->
+<!--                        <a href="#">@ ashion_shop</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-lg-2 col-md-4 col-sm-4 p-0"><div class="instagram__item set-bg" data-setbg="img/instagram/insta-3.jpg">-->
+<!--                    <div class="instagram__text">-->
+<!--                        <i class="fa fa-instagram"></i>-->
+<!--                        <a href="#">@ ashion_shop</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-lg-2 col-md-4 col-sm-4 p-0">-->
+<!--                <div class="instagram__item set-bg" data-setbg="img/instagram/insta-4.jpg">-->
+<!--                    <div class="instagram__text">-->
+<!--                        <i class="fa fa-instagram"></i>-->
+<!--                        <a href="#">@ ashion_shop</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-lg-2 col-md-4 col-sm-4 p-0">-->
+<!--                <div class="instagram__item set-bg" data-setbg="img/instagram/insta-5.jpg">-->
+<!--                    <div class="instagram__text">-->
+<!--                        <i class="fa fa-instagram"></i>-->
+<!--                        <a href="#">@ ashion_shop</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-lg-2 col-md-4 col-sm-4 p-0">-->
+<!--                <div class="instagram__item set-bg" data-setbg="img/instagram/insta-6.jpg">-->
+<!--                    <div class="instagram__text">-->
+<!--                        <i class="fa fa-instagram"></i>-->
+<!--                        <a href="#">@ ashion_shop</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--&lt;!&ndash; Instagram End &ndash;&gt;-->
+
+<!-- Footer Section Begin -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-7">
+                <div class="footer__about">
+                    <div class="footer__logo">
+                        <a href="../index"><img src="{% static 'img/logo.png' %}"alt=""></a>
+                    </div>
+                    <p>"Unveil a world of enchanting bridal fashion that transcends trends and captures the essence of your unique love story"
+                    </p>
+                    <div class="footer__payment">
+                        <a href="#"><img src="img/payment/payment-1.png" alt=""></a>
+                        <a href="#"><img src="img/payment/payment-2.png" alt=""></a>
+                        <a href="#"><img src="img/payment/payment-3.png" alt=""></a>
+                        <a href="#"><img src="img/payment/payment-4.png" alt=""></a>
+                        <a href="#"><img src="img/payment/payment-5.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-5">
+                <div class="footer__widget">
+                    <h6>Quick links</h6>
+                    <ul>
+                        <li><a href="#About us">About us</a></li>
+                        <li><a href="#services spad">services</a></li>
+                        <li><a href="#contact spad">Contact us</a></li>
+                        <li><a href="../wish">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-4">
+                <div class="footer__widget">
+                    <h6>Account</h6>
+                    <ul>
+                        <li><a href="../edit">My Account</a></li>
+                        <li><a href="../myorder">Orders Tracking</a></li>
+                        <li><a href="../cart_details">Checkout</a></li>
+                        <li><a href=">Wishlist</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-8 col-sm-8">
+                <div class="footer__newslatter">
+<!--                    <h6>NEWSLETTER</h6>-->
+<!--                    <form action="#">-->
+<!--                        <input type="text" placeholder="Email">-->
+<!--                        <button type="submit" class="site-btn">Subscribe</button>-->
+<!--                    </form>-->
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                <div class="footer__copyright__text">
+                    <p>Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+                </div>
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Footer Section End -->
+
+<!-- Search Begin -->
+<!--<div class="search-model">-->
+<!--    <div class="h-100 d-flex align-items-center justify-content-center">-->
+<!--        <div class="search-close-switch">+</div>-->
+<!--        <form class="search-model-form">-->
+<!--            <input type="text" id="search-input" placeholder="Search here.....">-->
+<!--        </form>-->
+<!--    </div>-->
+<!--</div>-->
+<!--&lt;!&ndash; Search End &ndash;&gt;-->
+
+<!-- Js Plugins -->
+
+
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'js/jquery-ui.min.js' %}"></script>
+<script src="{% static 'js/mixitup.min.js' %}"></script>
+<script src="{% static 'js/jquery.countdown.min.js' %}"></script>
+<script src="{% static 'js/jquery.slicknav.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/jquery.nicescroll.min.js' %}"></script>
+
+<script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'js/checkout.js'%}"></script>
+</body>
+
+</html>
