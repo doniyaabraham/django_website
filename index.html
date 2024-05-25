@@ -1,1 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <title>home</title>
+<!--    <link href="{% static 'https://fonts.googleapis.com/css2?family=Cookie&display=swap' %}" rel="stylesheet">-->
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/elegant-icons.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+</head>
+<style>
+.hi{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        min-height:100vh;
+        background-image:url("{% static 'img/categories/new.jpg' %}");
+        background-size:cover;}
+.content{
 
+    width:100%;
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    text-align:center;
+    color:black;}
+    .content h1{
+    font-size:70px;
+    margin-to:80px;}
+    .content p{
+    margin:20px auto;
+    font-weight:100;
+    line-height:25px;
+    }
+    button{
+    width:200px;
+    padding:15px 0;
+    text-algin:center;
+    margin:20px 10px;
+    border-radius:25px;
+    font-weight:bold;
+    border:2px solid #6699CC;
+    background:transparent;
+    color:#fff;
+    cursor:pointer;
+    position:relative;
+    overflow:hidden;}
+    span{
+    background:#6699CC;
+    height:100%;
+    width:0;
+    border-radius:25px;
+    position:absolute;
+    left:0;
+    bottom:0;
+    z-index:-1;
+    transition:0.5s;}
+    button:hover span{
+    width:100%;
+    }
+    button:hover{
+    border:none;}
+
+
+</style>
+<body>
+<div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Offcanvas Menu Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="offcanvas__close">+</div>
+        <ul class="offcanvas__widget">
+            <li><span class="icon_search search-switch"></span></li>
+            <li><a href="#"><span class="icon_heart_alt"></span>
+                <div class="tip">2</div>
+            </a></li>
+            <li><a href="#"><span class="icon_bag_alt"></span>
+                <div class="tip">2</div>
+            </a></li>
+        </ul>
+        <div class="offcanvas__logo">
+            <a href="./index.html"><img src="{% static 'img/logo.png' %}" alt=""></a>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+        <div class="offcanvas__auth">
+            <a href="index">Login</a>
+            <a href="register">Register</a>
+        </div>
+    </div>
+    <!-- Offcanvas Menu End -->
+
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-3 col-lg-2">
+                    <div class="header__logo">
+                        <a href="./index.html"><img src="{% static 'img/logo.png' %}" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-7">
+                    <nav class="header__menu">
+                        <ul>
+                            <li class="active"><a href="new">Home</a></li>
+                            <li><a href="#about ">About Us</a></li>
+                            <li><a href="#services spad">services</a></li>
+
+                            <li><a href="#contact spad">Contact us</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-3">
+                    <ul class="header__right">
+                        <ul class="header__right__widget">
+                            <li> <a class="login" href="logout">Login</a></li>
+                            <li>   <a class="login" href="register">Register</a></li>
+
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+            <div class="canvas__open">
+                <i class="fa fa-bars"></i>
+            </div>
+        </div>
+    </header>
+<div class="hi"><div class="content">
+    <h1>"Elegance for your dream day."
+    </h1>
+    <p>"Unveil a world of enchanting bridal fashion that transcends trends and <br>captures the essence of your unique love story"</p>
+<button  type="button"><span></span>EXPLORE</button>
+</div>
+    </div>
+<br>
+<br>
+<br>
+
+ <section class="product spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4">
+                <div class="section-title">
+                    <h4>New product</h4>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-8">
+                <ul class="filter__controls">
+                    <li class="active" data-filter="*">All</li>
+                    <li data-filter=".women">Women’s</li>
+                    <li data-filter=".men">Men’s</li>
+                    <li data-filter=".kid">Men’s shoes</li>
+                    <li data-filter=".accessories">women's shoes</li>
+                    <li data-filter=".cosmetic">Accessories</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row property__gallery">
+            <div class="col-lg-3 col-md-4 col-sm-6 mix women">
+                <div class="product__item">
+                    <div class="product__item__pic set-bg" data-setbg="{% static 'img/categories/orange choli.jpg' %}">
+                        <div class="label new">New</div>
+                        <ul class="product__hover">
+                            <li><a href="{% static 'img/categories/orange choli.jpg' %}" class="image-popup"><span class="arrow_expand"></span></a></li>
+<!--                            <li><a href="#"><span class="icon_heart_alt"></span></a></li>-->
+                                                      <li><a href="#" ><span class="arrow_expand"></span></a></li>
+
+                            <li><a href="#"><span class="icon_bag_alt"></span>rrtyyj</a></li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <h6><a href="#"></a>Beige Printed Lehenga</h6>
+
+
+                        <div class="product__price"><i class="fa fa-rupee" style="color:black; font-size:15px "></i> </span>4000</div>
+ <br>
+                        <div class="product__details__button"><a href="login" class="cart-btn"><span class="icon_bag_alt"></span> Add to cart</a>
+                            </div>
+                    </div>
+                </div>
+
+            </div>
+             <div class="col-lg-3 col-md-4 col-sm-6 mix women">
+                <div class="product__item">
+                    <div class="product__item__pic set-bg" data-setbg="{% static 'img/categories/im5.jpg' %}">
+
+                        <ul class="product__hover">
+                            <li><a href="{% static 'img/categories/orange choli.jpg' %}" class="image-popup"><span class="arrow_expand"></span></a></li>
+<!--                            <li><a href="#"><span class="icon_heart_alt"></span></a></li>-->
+                                                      <li><a href="#" ><span class="arrow_expand"></span></a></li>
+
+                            <li><a href="#"><span class="icon_bag_alt"></span>rrtyyj</a></li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <h6><a href="#"></a>Rose sliver  Lehenga</h6>
+
+
+                        <div class="product__price"><i class="fa fa-rupee" style="color:black; font-size:15px "></i> </span>4000</div>
+ <br>
+                        <div class="product__details__button"><a href="login" class="cart-btn"><span class="icon_bag_alt"></span> Add to cart</a>
+                            </div>
+                    </div>
+                </div>
+
+            </div>
+             <div class="col-lg-3 col-md-4 col-sm-6 mix women">
+                <div class="product__item">
+                    <div class="product__item__pic set-bg" data-setbg="{% static 'img/categories/im6.jpg' %}">
+                        <div class="label new">New</div>
+                        <ul class="product__hover">
+                            <li><a href="{% static 'img/categories/orange choli.jpg' %}" class="image-popup"><span class="arrow_expand"></span></a></li>
+<!--                            <li><a href="#"><span class="icon_heart_alt"></span></a></li>-->
+                                                      <li><a href="#" ><span class="arrow_expand"></span></a></li>
+
+                            <li><a href="#"><span class="icon_bag_alt"></span>rrtyyj</a></li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <h6><a href="#"></a>Beige Printed Lehenga</h6>
+
+
+                        <div class="product__price"><i class="fa fa-rupee" style="color:black; font-size:15px "></i> </span>4000</div>
+ <br>
+                        <div class="product__details__button"><a href="login" class="cart-btn"><span class="icon_bag_alt"></span> Add to cart</a>
+                            </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mix men">
+                <div class="product__item">
+                    <div class="product__item__pic set-bg" data-setbg="{% static 'img/categories/mk.jpg' %}">
+                        <ul class="product__hover">
+                            <li><a href="{% static 'img/categories/mk.jpg' %}" class="image-popup"><span class="arrow_expand"></span></a></li>
+                            <li><a href="#"><span class="icon_heart_alt"></span></a></li>
+                            <li><a href="#"><span class="icon_bag_alt"></span></a></li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <h6><a href="#">Woven-Design sherwani set</a></h6>
+
+                        <div class="product__price"><i class="fa fa-rupee" style="color:black; font-size:15px "></i> </span>4000</div>
+ <div class="product__details__button"><a href="login" class="cart-btn"><span class="icon_bag_alt"></span> Add to cart</a>
+                            </div>
+                    </div>
+
+
+                </div>
+            </div> <div class="col-lg-3 col-md-4 col-sm-6 mix men">
+                <div class="product__item">
+                    <div class="product__item__pic set-bg" data-setbg="{% static 'img/categories/red.jpg' %}">
+                        <ul class="product__hover">
+                            <li><a href="{% static 'img/categories/mk.jpg' %}" class="image-popup"><span class="arrow_expand"></span></a></li>
+                            <li><a href="#"><span class="icon_heart_alt"></span></a></li>
+                            <li><a href="#"><span class="icon_bag_alt"></span></a></li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <h6><a href="#">Maroon sherwani set</a></h6>
+
+                        <div class="product__price"><i class="fa fa-rupee" style="color:black; font-size:15px "></i> </span>4000</div>
+ <div class="product__details__button"><a href="login" class="cart-btn"><span class="icon_bag_alt"></span> Add to cart</a>
+                            </div>
+                    </div>
+
+
+                </div>
+            </div>
+             <div class="col-lg-3 col-md-4 col-sm-6 mix men">
+                <div class="product__item">
+                    <div class="product__item__pic set-bg" data-setbg="{% static 'img/categories/blw.jpeg' %}">
+                        <ul class="product__hover">
+                            <li><a href="{% static 'img/categories/blw.jpeg' %}" class="image-popup"><span class="arrow_expand"></span></a></li>
+                            <li><a href="#"><span class="icon_heart_alt"></span></a></li>
+                            <li><a href="#"><span class="icon_bag_alt"></span></a></li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <h6><a href="#">blue-white sherwani set</a></h6>
+
+                        <div class="product__price"><i class="fa fa-rupee" style="color:black; font-size:15px "></i> </span>4000</div>
+ <div class="product__details__button"><a href="login" class="cart-btn"><span class="icon_bag_alt"></span> Add to cart</a>
+                            </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mix accessories">
+                <div class="product__item">
+                    <div class="product__item__pic set-bg" data-setbg="{% static 'img/categories/sho.jpeg' %}">
+<!--                        <div class="label stockout">out of stock</div>-->
+                        <ul class="product__hover">
+                            <li><a href="{% static 'img/categories/sho.jpeg' %}" class="image-popup"><span class="arrow_expand"></span></a></li>
+                            <li><a href="#"><span class="icon_heart_alt"></span></a></li>
+                            <li><a href="#"><span class="icon_bag_alt"></span></a></li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <h6><a href="#">white shoes</a></h6>
+
+                      <div class="product__price"><i class="fa fa-rupee" style="color:black; font-size:15px "></i> </span>4000</div>
+<br>
+                         <div class="product__details__button"><a href="login" class="cart-btn"><span class="icon_bag_alt"></span> Add to cart</a>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mix cosmetic">
+                <div class="product__item">
+                    <div class="product__item__pic set-bg" data-setbg="{% static 'img/categories/je.jpg' %}">
+                        <ul class="product__hover">
+                            <li><a href="{% static 'img/categories/je.jpg' %}" class="image-popup"><span class="arrow_expand"></span></a></li>
+                            <li><a href="#"><span class="icon_heart_alt"></span></a></li>
+                            <li><a href="#"><span class="icon_bag_alt"></span></a></li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <h6><a href="#">white stoned jewlellery set</a></h6>
+
+                        <div class="product__price"><i class="fa fa-rupee" style="color:black; font-size:15px "></i> </span>4000</div>
+ <div class="product__details__button"><a href="login" class="cart-btn"><span class="icon_bag_alt"></span> Add to cart</a>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mix kid">
+                <div class="product__item">
+                    <div class="product__item__pic set-bg" data-setbg="{% static 'img/categories/ms.jpg' %}">
+                        <ul class="product__hover">
+                            <li><a href="{% static 'img/categories/ms.jpg' %}" class="image-popup"><span class="arrow_expand"></span></a></li>
+                            <li><a href="#"><span class="icon_heart_alt"></span></a></li>
+                            <li><a href="#"><span class="icon_bag_alt"></span></a></li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <h6><a href="#">offwhite brown shoes</a></h6>
+
+                        <div class="product__price"><i class="fa fa-rupee" style="color:black; font-size:15px "></i> </span>4000</div>
+<div class="product__details__button"><a href="login" class="cart-btn"><span class="icon_bag_alt"></span> Add to cart</a>
+                            </div>
+                    </div>
+                </div>
+            </div>
+<!--            <div class="col-lg-3 col-md-4 col-sm-6 mix women men kid accessories cosmetic">-->
+<!--                <div class="product__item sale">-->
+<!--                    <div class="product__item__pic set-bg" data-setbg="{% static 'img/categories/olivecho;i.jpg' %}">-->
+
+<!--                        <ul class="product__hover">-->
+<!--                            <li><a href="{% static 'img/categories/olivecho;i.jpg' %}" class="image-popup"><span class="arrow_expand"></span></a></li>-->
+<!--                            <li><a href="#"><span class="icon_heart_alt"></span></a></li>-->
+<!--                            <li><a href="#"><span class="icon_bag_alt"></span></a></li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
+<!--                    <div class="product__item__text">-->
+<!--                        <h6><a href="#">peach-coloured Lehenga</a></h6>-->
+
+
+<!--                        <div class="product__price"><i class="fa fa-rupee" style="color:black; font-size:15px "></i> </span>2000</div>-->
+<!--                   <div class="product__details__button"><a href="login" class="cart-btn"><span class="icon_bag_alt"></span> Add to cart</a>-->
+<!--                            </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-lg-3 col-md-4 col-sm-6 mix women men kid accessories cosmetic">-->
+<!--                <div class="product__item">-->
+<!--                    <div class="product__item__pic set-bg" data-setbg="{% static 'img/categories/bluele.jpg'%}">-->
+<!--                        <ul class="product__hover">-->
+<!--                            <li><a href="{% static 'img/categories/bluele.jpg'%}" class="image-popup"><span class="arrow_expand"></span></a></li>-->
+<!--                            <li><a href="#"><span class="icon_heart_alt"></span></a></li>-->
+<!--                            <li><a href="#"><span class="icon_bag_alt"></span></a></li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
+<!--                    <div class="product__item__text">-->
+<!--                        <h6><a href="#">Blue & white Lehenga</a></h6>-->
+
+
+<!--                        <div class="product__price"><i class="fa fa-rupee" style="color:black; font-size:15px "></i> </span>2000</div>-->
+<!--                    <div class="product__details__button"><a href="login" class="cart-btn"><span class="icon_bag_alt"></span> Add to cart</a>-->
+<!--                            </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-lg-3 col-md-4 col-sm-6 mix women men kid accessories cosmetic">-->
+<!--                <div class="product__item sale">-->
+<!--                    <div class="product__item__pic set-bg" data-setbg="{% static 'img/categories/redl.jpg'%}">-->
+
+<!--                        <ul class="product__hover">-->
+<!--                            <li><a href="{% static 'img/categories/bluele.jpg'%}" class="image-popup"><span class="arrow_expand"></span></a></li>-->
+<!--                            <li><a href="#"><span class="icon_heart_alt"></span></a></li>-->
+<!--                            <li><a href="#"><span class="icon_bag_alt"></span></a></li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
+<!--                    <div class="product__item__text">-->
+<!--                        <h6><a href="#">red chikankari Lehenga</a></h6>-->
+<!--                       <div class="product__price"><i class="fa fa-rupee" style="color:black; font-size:15px "></i> </span>2000</div>-->
+<!--                     <div class="product__details__button"><a href="login" class="cart-btn"><span class="icon_bag_alt"></span> Add to cart</a>-->
+<!--                            </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+</section>
+<section class="trend spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="trend__content">
+                    <div class="section-title">
+                        <h4>Hot Trend</h4>
+                    </div>
+                    <div class="trend__item">
+                        <div class="trend__item__pic">
+                            <img src="{% static 'img/categories/im5.jpg' %}" height="100" width="100" alt="">
+                        </div>
+                        <div class="trend__item__text">
+                            <h6>pink lehenga</h6>
+
+                            <div class="product__price"><i class="fa fa-rupee" style="color:black; font-size:15px "></i> </span>6000</div>
+
+                        </div>
+                    </div>
+                    <div class="trend__item">
+                        <div class="trend__item__pic">
+                            <img src="{% static 'img/trend/ht-2.jpg' %}" alt="">
+                        </div>
+                        <div class="trend__item__text">
+                            <h6>Pendant earrings</h6>
+<div class="product__price"><i class="fa fa-rupee" style="color:black; font-size:15px "></i> </span>1000</div>
+
+                        </div>
+                    </div>
+                    <div class="trend__item">
+                        <div class="trend__item__pic">
+                            <img src="{% static 'img/categories/im3.jpg' %}" height="100" width="100" alt="">
+                        </div>
+                        <div class="trend__item__text">
+                            <h6>white gowns</h6>
+
+                         <div class="product__price"><i class="fa fa-rupee" style="color:black; font-size:15px "></i> </span>8000</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="trend__content">
+                    <div class="section-title">
+                        <h4>Best seller</h4>
+                    </div>
+                    <div class="trend__item">
+                        <div class="trend__item__pic">
+                            <img src="{% static 'img/categories/im2.jpg' %}"  height="100" width="100" alt="">
+                        </div>
+                        <div class="trend__item__text">
+                            <h6>heavy Red lehenga</h6>
+
+                           <div class="product__price"><i class="fa fa-rupee" style="color:black; font-size:15px "></i> </span>1000</div>
+                        </div>
+                    </div>
+                    <div class="trend__item">
+                        <div class="trend__item__pic">
+                            <img src="{% static 'img/categories/im6.jpg' %}"  height="100" width="100" alt="">
+                        </div>
+                        <div class="trend__item__text">
+                            <h6>blue lehenga</h6>
+
+                             <div class="product__price"><i class="fa fa-rupee" style="color:black; font-size:15px "></i> </span>3000</div>
+
+                        </div>
+                    </div>
+                    <div class="trend__item">
+                        <div class="trend__item__pic">
+                            <img src="{% static 'img/categories/im7.jpg' %}"  height="100" width="100" alt="">
+                        </div>
+                        <div class="trend__item__text">
+                            <h6>light weight heels</h6>
+
+     <div class="product__price"><i class="fa fa-rupee" style="color:black; font-size:15px "></i> </span>1000</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="trend__content">
+                    <div class="section-title">
+                        <h4>Feature</h4>
+                    </div>
+                    <div class="trend__item">
+                        <div class="trend__item__pic">
+                            <img src="{% static 'img/categories/im8.jpeg' %}"  height="100" width="100" alt="">
+                        </div>
+                        <div class="trend__item__text">
+                            <h6>Brown offwhite shoes</h6>
+
+                           <div class="product__price"><i class="fa fa-rupee" style="color:black; font-size:15px "></i> </span>1000</div>
+                        </div>
+                    </div>
+                    <div class="trend__item">
+                        <div class="trend__item__pic">
+                            <img src="{% static 'img/trend/f-2.jpg' %}" alt="">
+                        </div>
+                        <div class="trend__item__text">
+                            <h6>Metallic earrings</h6>
+
+<div class="product__price"><i class="fa fa-rupee" style="color:black; font-size:15px "></i> </span>2000</div>
+                        </div>
+                    </div>
+                    <div class="trend__item">
+                        <div class="trend__item__pic">
+                             <img src="{% static 'img/categories/im9.jpg' %}"  height="100" width="100" alt="">
+                        </div>
+                        <div class="trend__item__text">
+                            <h6>Diamond jewel</h6>
+
+                             <div class="product__price"><i class="fa fa-rupee" style="color:black; font-size:15px "></i> </span>3000</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="about">
+         <div class="main">
+
+
+                   <img src="{% static 'img/categories/about.jpg' %}">
+                  <div class="about-text">
+                     <h1>About Us</h1>
+
+                     <p >Our journey began with a simple yet profound vision: to be a trusted companion in your wedding planning journey. As you navigate the myriad of choices available, our dedicated team is here to assist, guide, and inspire you every step of the way.Whether you're seeking timeless classics or modern innovations, Ashion is your one-stop destination for all things wedding. Join us as we embark on this beautiful journey together, celebrating love, commitment, and the magical moments that define the beginning of forever.</p>
+
+                     <a href="" class="readmore" >let's Talk</a>
+
+            </div>
+         </div>
+    </section>
+      <!-- about section end -->
+<section class="services spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="services__item">
+                    <i class="fa fa-car"></i>
+                    <h6>Free Shipping</h6>
+                    <p>For all oder </p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="services__item">
+                    <i class="fa fa-money"></i>
+                    <h6>Money Back Guarantee</h6>
+                    <p>If good have Problems</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="services__item">
+                    <i class="fa fa-support"></i>
+                    <h6>Online Support 24/7</h6>
+                    <p>Dedicated support</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="services__item">
+                    <i class="fa fa-headphones"></i>
+                    <h6>Payment Secure</h6>
+                    <p>100% secure payment</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Services Section End -->
+{% if messages %}
+
+<div class="container" >
+
+<div class="alert alert-success alert-dismissible messages">
+
+  {% for message in messages %}
+
+   <button type="button" class="close" data-dismiss="alert">&times;</button>
+
+   {{message}}
+
+  </div>
+
+  {% endfor %}
+</div>
+
+{% endif %}
+
+<section class="contact spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="contact__content">
+                        <div class="contact__address">
+                            <h5>Contact info</h5>
+                            <ul>
+                                <li>
+                                    <h6><i class="fa fa-map-marker"></i> Address</h6>
+                                    <p>160 Pennsylvania Ave NW, Washington, Castle, PA 16101-5161</p>
+                                </li>
+                                <li>
+                                    <h6><i class="fa fa-phone"></i> Phone</h6>
+                                    <p><span>125-711-811</span><span>125-668-886</span></p>
+                                </li>
+                                <li>
+                                    <h6><i class="fa fa-headphones"></i> Support</h6>
+                                    <p><a href="mailto:ashionfashionwebsite@gmail.com">ashionfashionwebsite@gmail.com</a></p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="contact__form">
+                            <h5>SEND MESSAGE</h5>
+                            <form action="" method="post" enctype="multipart/form-data">
+                               {% csrf_token %}
+                                <input type="text" placeholder="Name"   name="name" required>
+                                <input type="text" placeholder="Email"  name="email"required>
+                                <textarea placeholder="Message" name="mssg" required></textarea>
+                                <button type="submit" class="site-btn">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="contact__map">
+                        <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48158.305462977965!2d-74.13283844036356!3d41.02757295168286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2e440473470d7%3A0xcaf503ca2ee57958!2sSaddle%20River%2C%20NJ%2007458%2C%20USA!5e0!3m2!1sen!2sbd!4v1575917275626!5m2!1sen!2sbd"
+                        height="780" style="border:0" allowfullscreen="">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Contact Section End -->
+
+ <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+   <script src="{% static 'js/bootstrap.min.js' %}"></script>
+   <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+  <script src="{% static 'js/jquery-ui.min.js' %}"></script>
+  <script src="{% static 'js/mixitup.min.js' %}"></script>
+ <script src="{% static 'js/jquery.countdown.min.js' %}"></script>
+  <script src="{% static 'js/jquery.slicknav.js' %}"></script>
+  <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'js/jquery.nicescroll.min.js' %}"></script>
+   <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
